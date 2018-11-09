@@ -2,11 +2,11 @@
 
 int main(){
 	char letter;
-	int num[10];
-	int cases,k,n,i,j,ans;
+	int num[11];
+	int cases,k,n,i,j,z,ans;
 	scanf ("%d",&cases);
 	for (k = 1;k <= cases;k++){
-		scanf ("%1s%d",&letter,&n);
+		scanf ("%1s%9d",&letter,&n);	
 		switch (letter){
 			case 'A': i = 10; break;
 			case 'B': i = 11; break;
@@ -41,16 +41,15 @@ int main(){
 			num[j] = n % 10;
 			n /= 10;
 		}
-		ans = i / 10 + num[10];
-		for (j = 1;j <= 9;j++){
-			ans += num[j] * (10 - j);
+		ans = num[0] + num[10];
+		for (z = 1;z <= 9;z++){
+			ans += num[z] * (10 - z);
 		}
 		if (ans % 10 == 0) {
-			printf ("real\n");
+			printf ("real");
 		}
-		else if (ans % 10 != 0){
-			printf ("fake\n");
-		} 
+		else printf ("fake");
+		if (k != cases) printf ("\n");
 	}
 	return 0;
 }
